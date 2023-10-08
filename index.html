@@ -4,9 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Hub</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Movie Hub</h1>
-    <h2>search</h2>
+    <div class="wrapper">
+        <div class="logo">
+            <div class="container">
+                <p>Movie<span>Hub</span></p>
+            </div>
+        </div>
+        <div class="search-container">
+            <div class="search-ele">
+                <h3>Search Movie Here</h3>
+                <input type="text" placeholder="search movie" class="form-control" id="search-movie">
+                
+                <div class="search-list">
+                    <div class="search-item">
+                        <div class="thumbnail">
+                            <img src="./imgs/spider-man.jpeg" alt="">
+                        </div>
+                        <div class="search-info">
+                            <h3>Spider-Man:No Way Home</h3>
+                            <p>2021</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="result-container">
+                <div class="resultGrid" id="resultGrid">
+                    <div class="movie-poster">
+                        <img src="./imgs/spider-man.jpeg" alt="poster">
+                    </div>
+                    <div class="movie-info">
+                        <h3 class="title">Spider-Man: No Way Home</h3>
+                        <ul class="movie-misc-info">
+                            <li class="year">Year:2021</li>
+                            <li class="rated">Ratings: PG-13</li>
+                            <li class="released">Released: 17 Dec 2021</li>
+                        </ul>
+                        <p class="genre"><b>Genre:</b>Action,SuperHero,Science fiction</p>
+                        <p class="writers"><b>Writers:</b>Chris Mckenna, Erik Sommers, Stan Lee</p>
+                        <p class="stars"><b>Stars:</b>Tom Holland, Zendaya, Benedict Cumberbatch</p>
+                        <p class="language"><b>Language:</b>English</p>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
 </body>
 </html>
