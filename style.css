@@ -8,7 +8,7 @@ a{
 }
 img{
     width: 100%;
-    display: black;
+    display: block;
 }
 .wrapper{
     min-height: 100vh;
@@ -199,11 +199,12 @@ img{
     .resultGrid{
         display: flex;
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 
     .movie-info{
-        align-items: left;
-        padding-left: 200px;
+        text-align: left;
+        padding-left: 20px;
     }
     .movie-info p{
         padding: 10px;

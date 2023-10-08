@@ -45,6 +45,44 @@ function displayMovieList(movies){
         <p>${movies[i].Year}</p>
     </div>`;
     searchList.appendChild(movieListItem);
-
     }
+    loadMovieDetails();
 }
+function loadMovieDetails(){
+    const searchMovielist=searchList.querySelectorAll('.search-item');
+    searchMovielist.forEach(movie=>{
+        movie.addEventListener('click',async()=>{
+            // console.log(movie.dataset.id);
+            searchList.classList.add('hide-search-list');
+            movieSearchBox.value="";
+            const result=await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=8652c1ca
+            `);
+            const movieDetails=await result.json();
+            displayMovieDetails(movieDetails);
+        });
+    });
+}
+function displayMovieDetails(details)
+{
+    resultGrid.innerHTML=`
+    <div class="movie-poster">
+    <img src="${details.Poster != "N/A" ? details.Poster:"./imgs/image.png"}" alt="poster">
+</div>
+<div class="movie-info">
+    <h3 class="title">${details.Title}</h3>
+    <ul class="movie-misc-info">
+        <li class="year">${details.Year}</li>
+        <li class="rated">${details.Rated}</li>
+        <li class="released">${details.Released}</li>
+    </ul>
+    <p class="genre"><b>Genre:</b>${details.Genre}</p>
+    <p class="writers"><b>Writers:</b>${details.Writer}</p>
+    <p class="stars"><b>Stars:</b>${details.Actors}</p>
+    <p class="language"><b>Language:</b>${details.Language}</p>
+</div>`;
+}
+window.addEventListener('click', (event) => {
+    if(event.target.className != "form-control"){
+        searchList.classList.add('hide-search-list');
+    }
+});
